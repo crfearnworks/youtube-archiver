@@ -1,0 +1,12 @@
+{
+  "channels": [
+    {
+      "url": "https://www.youtube.com/@LinusTechTips",
+      "download_directory": "/path/to/videos/linustechtips"
+    }
+  ],
+  "default_directories": [
+    "/default/path/for/channels/without/specific/directory"
+  ],
+  "cookies_file": "youtube_cookies.txt"
+}
