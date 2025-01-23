@@ -97,6 +97,13 @@ def _run_yt_dlp_download(video_url: str, download_directory: str, logger, cookie
         logger.info(f"Using cookies file: {cookies_file}")
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info_dict = ydl.extract_info(video_url, download=False) # Extract info without download
+        output_filename = ydl.prepare_filename(info_dict) # Get the expected filename
+
+        if os.path.exists(output_filename):
+            logger.info(f"Video already downloaded: {video_url} - {output_filename}")
+            return # Skip download if file exists
+
         logger.info(f"Starting download: {video_url}")
         ydl.download([video_url])
         logger.info(f"Completed download: {video_url}")

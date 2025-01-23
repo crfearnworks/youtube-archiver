@@ -129,7 +129,7 @@ def main():
     parser.add_argument(
         "--rate-limit",
         type=int,
-        default=0, # Changed default to 0, meaning no rate limit by default
+        default=5, # 5 seconds between 
         help="Number of seconds to sleep after each successful download to avoid rate limits."
     )
     args = parser.parse_args()
